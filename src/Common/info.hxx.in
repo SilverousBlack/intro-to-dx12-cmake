@@ -1,0 +1,30 @@
+/*
+    # Common Project Information library
+
+    Repository: Common v@Common_VERSION@
+
+    This library contains general information on the
+    project through accessible library macros.
+
+    (C) @OWNER
+*/
+
+#ifndef COMMON_INFO_H
+#define COMMON_INFO_H
+
+#include <info/info.hxx>
+
+#define PROJECT_NAME "Common"
+#define PROJECT_VERSION_MAJOR "@Common_VERSION_MAJOR@"
+#define PROJECT_VERSION_MINOR "@Common_VERSION_MINOR@"
+#define PROJECT_VERSION_PATCH "@Common_VERSION_PATCH@"
+#define PROJECT_VERSION "0.0.0"
+#define PLATFORM_ARCHITECTURE "AMD64"
+#define COMPILER "MSVC_19.39.33519.0"
+
+#define COMMON_VERSION_MAJOR "@Common_VERSION_MAJOR@"
+#define COMMON_VERSION_MINOR "@Common_VERSION_MINOR@"
+#define COMMON_VERSION_PATCH "@Common_VERSION_PATCH@"
+#define COMMON_VERSION "0.0.0"
+
+#endif
