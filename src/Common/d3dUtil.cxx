@@ -1,5 +1,7 @@
+#include <tchar.h>
+#include <string>
 
-#include "d3dUtil.h"
+#include "d3dUtil.hxx"
 #include <comdef.h>
 #include <fstream>
 
@@ -113,11 +115,24 @@ ComPtr<ID3DBlob> d3dUtil::CompileShader(
 	return byteCode;
 }
 
+std::wstring ConvertTCharToWString(const TCHAR* tcharString) {
+#ifdef UNICODE
+    return std::wstring(tcharString);
+#else
+    size_t size = strlen(tcharString) + 1;
+    wchar_t* buffer = new wchar_t[size];
+    mbstowcs_s(buffer, tcharString, size);
+    std::wstring result(buffer);
+    delete[] buffer;
+    return result;
+#endif
+}
+
 std::wstring DxException::ToString()const
 {
     // Get the string description of the error code.
     _com_error err(ErrorCode);
-    std::wstring msg = err.ErrorMessage();
+    std::wstring msg = ConvertTCharToWString(err.ErrorMessage());
 
     return FunctionName + L" failed in " + Filename + L"; line " + std::to_wstring(LineNumber) + L"; error: " + msg;
 }

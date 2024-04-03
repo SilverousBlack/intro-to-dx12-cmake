@@ -8,9 +8,16 @@
 //   Hold the right mouse button down and move the mouse to zoom in and out.
 //***************************************************************************************
 
-#include "../../Common/d3dApp.h"
-#include "../../Common/MathHelper.h"
-#include "../../Common/UploadBuffer.h"
+#include "../Common/d3dApp.hxx"
+#include "../Common/MathHelper.hxx"
+#include "../Common/UploadBuffer.hxx"
+
+#include "info.hxx"
+#include <filesystem>
+
+#if defined(DEBUG) | defined(_DEBUG)
+    #include <iostream>
+#endif
 
 using Microsoft::WRL::ComPtr;
 using namespace DirectX;
@@ -350,9 +357,23 @@ void BoxApp::BuildRootSignature()
 void BoxApp::BuildShadersAndInputLayout()
 {
     HRESULT hr = S_OK;
+
+    std::filesystem::path fpath = std::wstring(PROJECT_DIR_PATH) + L"Shaders/color.hlsl";
+    fpath = fpath.make_preferred();
+    std::wstring shader_path = fpath.wstring();
+
+#if defined(DEBUG) | defined(_DEBUG)
+	std::filesystem::path sP = shader_path;
+    auto bpath = std::filesystem::relative(sP);
+    if (!std::filesystem::exists(sP)){
+        std::cerr << "Shader path does not exist [" << sP.u8string() << "]." << std::endl;
+        std::cerr << "CWD: " << std::filesystem::current_path() << std::endl;
+        std::cerr << "bpath: " << bpath << " | " << (std::filesystem::exists(bpath) ? "active" : "inactive") << std::endl;
+    }
+#endif
     
-	mvsByteCode = d3dUtil::CompileShader(L"Shaders\\color.hlsl", nullptr, "VS", "vs_5_0");
-	mpsByteCode = d3dUtil::CompileShader(L"Shaders\\color.hlsl", nullptr, "PS", "ps_5_0");
+	mvsByteCode = d3dUtil::CompileShader(shader_path, nullptr, "VS", "vs_5_0");
+	mpsByteCode = d3dUtil::CompileShader(shader_path, nullptr, "PS", "ps_5_0");
 
     mInputLayout =
     {

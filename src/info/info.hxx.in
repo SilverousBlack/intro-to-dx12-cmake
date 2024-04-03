@@ -1,7 +1,7 @@
 /*
     # General Repository Information library
 
-    Repository: IntroToDx12CMake v@IntroToDx12CMake_VERSION@
+    Repository: intro-to-dx12-cmake v@intro-to-dx12-cmake_VERSION@
 
     This library contains general information on the
     repository through accessible library macros.
@@ -10,17 +10,17 @@
     (C) Frank D. Luna;Vasilios Magriplis @yottaawesome;Julian Caleb Segundo @SilverousBlack [juliancalebsegundo@gmail.com]
 */
 
-#ifndef INTROTODX12CMAKE_INFO_HXX
-#define INTROTODX12CMAKE_INFO_HXX
+#ifndef INTRO_TO_DX12_CMAKE_INFO_HXX
+#define INTRO_TO_DX12_CMAKE_INFO_HXX
 
 // Workspace (solution/project group) name as a string
-#define WORKSPACE_NAME "IntroToDx12CMake"
+#define WORKSPACE_NAME "intro-to-dx12-cmake"
 // Workspace (solution/project group) major version
-#define WORKSPACE_VERSION_MAJOR @IntroToDx12CMake_VERSION_MAJOR@
+#define WORKSPACE_VERSION_MAJOR @intro-to-dx12-cmake_VERSION_MAJOR@
 // Workspace (solution/project group) minor version
-#define WORKSPACE_VERSION_MINOR @IntroToDx12CMake_VERSION_MINOR@
+#define WORKSPACE_VERSION_MINOR @intro-to-dx12-cmake_VERSION_MINOR@
 // Workspace (solution/project group) patch version
-#define WORKSPACE_VERSION_PATCH @IntroToDx12CMake_VERSION_PATCH@
+#define WORKSPACE_VERSION_PATCH @intro-to-dx12-cmake_VERSION_PATCH@
 // Workspace (solution/project group) version as a SemVer string
 #define WORKSPACE_VERSION "0.0.0"
 // Workspace active platform architecture
@@ -28,10 +28,10 @@
 // Workspace active compiler
 #define COMPILER "MSVC_19.39.33519.0"
 
-#define INTROTODX12CMAKE "IntroToDx12CMake v@IntroToDx12CMake_VERSION@"
-#define INTROTODX12CMAKE_VERSION_MAJOR @IntroToDx12CMake_VERSION_MAJOR@
-#define INTROTODX12CMAKE_VERSION_MINOR @IntroToDx12CMake_VERSION_MINOR@
-#define INTROTODX12CMAKE_VERSION_PATCH @IntroToDx12CMake_VERSION_PATCH@
-#define INTROTODX12CMAKE_VERSION "0.0.0"
+#define INTRO_TO_DX12_CMAKE "intro-to-dx12-cmake v@intro-to-dx12-cmake_VERSION@"
+#define INTRO_TO_DX12_CMAKE_VERSION_MAJOR @intro-to-dx12-cmake_VERSION_MAJOR@
+#define INTRO_TO_DX12_CMAKE_VERSION_MINOR @intro-to-dx12-cmake_VERSION_MINOR@
+#define INTRO_TO_DX12_CMAKE_VERSION_PATCH @intro-to-dx12-cmake_VERSION_PATCH@
+#define INTRO_TO_DX12_CMAKE_VERSION "0.0.0"
 
 #endif

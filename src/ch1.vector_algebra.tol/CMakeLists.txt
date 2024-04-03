@@ -4,6 +4,7 @@ set(
 )
 
 string(TOUPPER "${PROJECT_NAME}" PROJECT)
+string(REGEX REPLACE "[\.\-]" "_" PROJECT ${PROJECT})
 
 set(
     ${PROJECT_NAME}_VERSION_MAJOR
@@ -29,7 +30,7 @@ set(
 configure_file(${CMAKE_SOURCE_DIR}/src/${PROJECT_NAME}/info_template.hxx.in ${CMAKE_SOURCE_DIR}/src/${PROJECT_NAME}/info.hxx.in)
 configure_file(${CMAKE_SOURCE_DIR}/src/${PROJECT_NAME}/info.hxx.in ${CMAKE_SOURCE_DIR}/src/${PROJECT_NAME}/info.hxx)
 
-add_executable(${PROJECT_NAME} "xmvec3.cxx")
+add_executable(${PROJECT_NAME} "tol.cxx")
 set_target_properties(
     ${PROJECT_NAME} PROPERTIES
     VERSION ${${PROJECT_NAME}_VERSION}
@@ -37,7 +38,6 @@ set_target_properties(
 
 set(
     TARGET_LINK_LIBRARIES,
-    Common # TODO: list target link libraries
 )
 
 foreach(TARGET_LINK_LIBRARY ${TARGET_LINK_LIBRARIES})

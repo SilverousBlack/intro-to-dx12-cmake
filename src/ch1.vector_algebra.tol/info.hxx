@@ -9,8 +9,8 @@
     (C) Frank D. Luna;Vasilios Magriplis @yottaawesome;Julian Caleb Segundo @SilverousBlack [juliancalebsegundo@gmail.com]
 */
 
-#ifndef CH1.VECTOR_ALGEBRA.TOL_INFO_H
-#define CH1.VECTOR_ALGEBRA.TOL_INFO_H
+#ifndef CH1_VECTOR_ALGEBRA_TOL_INFO_H
+#define CH1_VECTOR_ALGEBRA_TOL_INFO_H
 
 #include <info/info.hxx>
 
@@ -22,9 +22,9 @@
 #define PLATFORM_ARCHITECTURE "AMD64"
 #define COMPILER "MSVC_19.39.33519.0"
 
-#define CH1.VECTOR_ALGEBRA.TOL_VERSION_MAJOR "0"
-#define CH1.VECTOR_ALGEBRA.TOL_VERSION_MINOR "0"
-#define CH1.VECTOR_ALGEBRA.TOL_VERSION_PATCH "0"
-#define CH1.VECTOR_ALGEBRA.TOL_VERSION "0.0.0"
+#define CH1_VECTOR_ALGEBRA_TOL_VERSION_MAJOR "0"
+#define CH1_VECTOR_ALGEBRA_TOL_VERSION_MINOR "0"
+#define CH1_VECTOR_ALGEBRA_TOL_VERSION_PATCH "0"
+#define CH1_VECTOR_ALGEBRA_TOL_VERSION "0.0.0"
 
 #endif

@@ -1,4 +1,3 @@
-/*
 #include <windows.h> // for XMVerifyCPUSupport
 #include <DirectXMath.h>
 #include <DirectXPackedVector.h>
@@ -21,7 +20,7 @@ int main()
     XMVECTOR u = XMVectorSet(1.0f, 1.0f, 1.0f, 0.0f);
     XMVECTOR n = XMVector3Normalize(u);
 
-    float LU = XMVectorGetX(XMVector3Length(n));
+    float LU = XMVectorGetX(DirectX::XMVector3Length(n));
 
     // Mathematically, the length should be 1.  Is it numerically?
     cout << LU << endl;
@@ -34,4 +33,3 @@ int main()
     float powLU = powf(LU, 1.0e6f);
     cout << "LU^(10^6) = " << powLU << endl;
 }
-*/

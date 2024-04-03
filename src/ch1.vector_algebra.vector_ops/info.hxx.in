@@ -9,8 +9,8 @@
     (C) Frank D. Luna;Vasilios Magriplis @yottaawesome;Julian Caleb Segundo @SilverousBlack [juliancalebsegundo@gmail.com]
 */
 
-#ifndef CH1.VECTOR_ALGEBRA.VECTOR_OPS_INFO_H
-#define CH1.VECTOR_ALGEBRA.VECTOR_OPS_INFO_H
+#ifndef CH1_VECTOR_ALGEBRA_VECTOR_OPS_INFO_H
+#define CH1_VECTOR_ALGEBRA_VECTOR_OPS_INFO_H
 
 #include <info/info.hxx>
 
@@ -22,9 +22,9 @@
 #define PLATFORM_ARCHITECTURE "AMD64"
 #define COMPILER "MSVC_19.39.33519.0"
 
-#define CH1.VECTOR_ALGEBRA.VECTOR_OPS_VERSION_MAJOR "@ch1.vector_algebra.vector_ops_VERSION_MAJOR@"
-#define CH1.VECTOR_ALGEBRA.VECTOR_OPS_VERSION_MINOR "@ch1.vector_algebra.vector_ops_VERSION_MINOR@"
-#define CH1.VECTOR_ALGEBRA.VECTOR_OPS_VERSION_PATCH "@ch1.vector_algebra.vector_ops_VERSION_PATCH@"
-#define CH1.VECTOR_ALGEBRA.VECTOR_OPS_VERSION "0.0.0"
+#define CH1_VECTOR_ALGEBRA_VECTOR_OPS_VERSION_MAJOR "@ch1.vector_algebra.vector_ops_VERSION_MAJOR@"
+#define CH1_VECTOR_ALGEBRA_VECTOR_OPS_VERSION_MINOR "@ch1.vector_algebra.vector_ops_VERSION_MINOR@"
+#define CH1_VECTOR_ALGEBRA_VECTOR_OPS_VERSION_PATCH "@ch1.vector_algebra.vector_ops_VERSION_PATCH@"
+#define CH1_VECTOR_ALGEBRA_VECTOR_OPS_VERSION "0.0.0"
 
 #endif

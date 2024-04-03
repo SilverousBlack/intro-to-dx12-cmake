@@ -4,6 +4,7 @@ set(
 )
 
 string(TOUPPER "${PROJECT_NAME}" PROJECT)
+string(REGEX REPLACE "[\.\-]" "_" PROJECT ${PROJECT})
 
 set(
     ${PROJECT_NAME}_VERSION_MAJOR

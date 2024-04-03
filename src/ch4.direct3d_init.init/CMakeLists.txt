@@ -1,6 +1,6 @@
 set(
     PROJECT_NAME
-    "ch1.vector_algebra.xmvec3"
+    "ch4.direct3d_init.init"
 )
 
 string(TOUPPER "${PROJECT_NAME}" PROJECT)
@@ -30,14 +30,15 @@ set(
 configure_file(${CMAKE_SOURCE_DIR}/src/${PROJECT_NAME}/info_template.hxx.in ${CMAKE_SOURCE_DIR}/src/${PROJECT_NAME}/info.hxx.in)
 configure_file(${CMAKE_SOURCE_DIR}/src/${PROJECT_NAME}/info.hxx.in ${CMAKE_SOURCE_DIR}/src/${PROJECT_NAME}/info.hxx)
 
-add_executable(${PROJECT_NAME} "xmvec3.cxx")
+add_executable(${PROJECT_NAME} WIN32 InitDirect3DApp.cxx)
 set_target_properties(
     ${PROJECT_NAME} PROPERTIES
     VERSION ${${PROJECT_NAME}_VERSION}
 )
 
 set(
-    TARGET_LINK_LIBRARIES,
+    TARGET_LINK_LIBRARIES
+    "Common"
 )
 
 foreach(TARGET_LINK_LIBRARY ${TARGET_LINK_LIBRARIES})

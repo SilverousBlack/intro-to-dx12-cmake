@@ -14,13 +14,8 @@
 
 #include <info/info.hxx>
 
+#undef PROJECT_NAME
 #define PROJECT_NAME "Common"
-#define PROJECT_VERSION_MAJOR "0"
-#define PROJECT_VERSION_MINOR "0"
-#define PROJECT_VERSION_PATCH "0"
-#define PROJECT_VERSION "0.0.0"
-#define PLATFORM_ARCHITECTURE "AMD64"
-#define COMPILER "MSVC_19.39.33519.0"
 
 #define COMMON_VERSION_MAJOR "0"
 #define COMMON_VERSION_MINOR "0"

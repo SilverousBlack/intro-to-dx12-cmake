@@ -6,7 +6,7 @@
     This library contains general information on the
     project through accessible library macros.
 
-    (C) @OWNER
+    (C) @OWNER@
 */
 
 #ifndef @PROJECT@_INFO_H

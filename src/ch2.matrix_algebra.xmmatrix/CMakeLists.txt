@@ -4,6 +4,7 @@ set(
 )
 
 string(TOUPPER "${PROJECT_NAME}" PROJECT)
+string(REGEX REPLACE "[\.\-]" "_" PROJECT ${PROJECT})
 
 set(
     ${PROJECT_NAME}_VERSION_MAJOR
@@ -37,7 +38,6 @@ set_target_properties(
 
 set(
     TARGET_LINK_LIBRARIES,
-    Common # TODO: list target link libraries
 )
 
 foreach(TARGET_LINK_LIBRARY ${TARGET_LINK_LIBRARIES})

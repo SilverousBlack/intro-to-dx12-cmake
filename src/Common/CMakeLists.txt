@@ -32,8 +32,8 @@ configure_file(${CMAKE_SOURCE_DIR}/src/${PROJECT_NAME}/info.hxx.in ${CMAKE_SOURC
 set(
     SOURCE_FILES
     Camera
-    #d3dApp
-    #d3dUtil
+    d3dApp
+    d3dUtil
     DDSTextureLoader
     GameTimer
     GeometryGenerator
@@ -41,12 +41,12 @@ set(
 )
 
 foreach(SOURCE ${SOURCE_FILES})
-    add_library(${SOURCE} STATIC ${SOURCE}.cxx)
-    install(TARGETS ${SOURCE}
+    add_library(Common.${SOURCE} STATIC ${SOURCE}.cxx)
+    install(TARGETS Common.${SOURCE}
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
     )
-    target_include_directories(${SOURCE} PUBLIC include)
+    target_include_directories(Common.${SOURCE} PUBLIC include)
 endforeach(SOURCE ${SOURCE_FILES})
 
 add_library(${PROJECT_NAME} STATIC ${PROJECT_NAME}.cxx)

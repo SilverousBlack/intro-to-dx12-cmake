@@ -6,8 +6,11 @@
 //
 //***************************************************************************************
 
-#include "../../Common/d3dApp.h"
+#include <Common/d3dApp.hxx>
 #include <DirectXColors.h>
+
+#include "info.hxx"
+#include <iostream>
 
 using namespace DirectX;
 
@@ -29,6 +32,7 @@ private:
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
 				   PSTR cmdLine, int showCmd)
 {
+
 	// Enable run-time memory check for debug builds.
 #if defined(DEBUG) | defined(_DEBUG)
 	_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
@@ -44,7 +48,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
     }
     catch(DxException& e)
     {
-        MessageBox(nullptr, e.ToString().c_str(), L"HR Failed", MB_OK);
+        MessageBoxW(nullptr, e.ToString().c_str(), L"HR Failed", MB_OK);
         return 0;
     }
 }
@@ -75,6 +79,7 @@ void InitDirect3DApp::Update(const GameTimer& gt)
 {
 
 }
+
 
 void InitDirect3DApp::Draw(const GameTimer& gt)
 {
