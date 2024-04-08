@@ -69,6 +69,7 @@ set(
     "ch2.matrix_algebra.xmmatrix"
     "ch4.direct3d_init.init"
     "ch6.drawing_in_d3d.box"
+    "ch7.drawing_in_d3d_2.shapes"
 )
 
 set(
