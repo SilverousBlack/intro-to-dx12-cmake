@@ -70,6 +70,7 @@ set(
     "ch4.direct3d_init.init"
     "ch6.drawing_in_d3d.box"
     "ch7.drawing_in_d3d_2.shapes"
+    "ch7.drawing_in_d3d_2.land_and_waves"
 )
 
 set(
