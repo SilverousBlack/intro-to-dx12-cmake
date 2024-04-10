@@ -2,7 +2,7 @@
 // Waves.cpp by Frank Luna (C) 2011 All Rights Reserved.
 //***************************************************************************************
 
-#include "Waves.h"
+#include "Waves.hxx"
 #include <ppl.h>
 #include <algorithm>
 #include <vector>

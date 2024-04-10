@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../../Common/d3dUtil.h"
-#include "../../Common/MathHelper.h"
-#include "../../Common/UploadBuffer.h"
+#include "../Common/d3dUtil.hxx"
+#include "../Common/MathHelper.hxx"
+#include "../Common/UploadBuffer.hxx"
 
 struct ObjectConstants
 {
