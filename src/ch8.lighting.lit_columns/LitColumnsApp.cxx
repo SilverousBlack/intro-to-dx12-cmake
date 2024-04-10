@@ -2,11 +2,18 @@
 // LitColumnsApp.cpp by Frank Luna (C) 2015 All Rights Reserved.
 //***************************************************************************************
 
-#include "../../Common/d3dApp.h"
-#include "../../Common/MathHelper.h"
-#include "../../Common/UploadBuffer.h"
-#include "../../Common/GeometryGenerator.h"
-#include "FrameResource.h"
+#include "../Common/d3dApp.hxx"
+#include "../Common/MathHelper.hxx"
+#include "../Common/UploadBuffer.hxx"
+#include "../Common/GeometryGenerator.hxx"
+#include "FrameResource.hxx"
+
+#include "info.hxx"
+#include <filesystem>
+
+#if defined(DEBUG) | defined(_DEBUG)
+    #include <iostream>
+#endif
 
 using Microsoft::WRL::ComPtr;
 using namespace DirectX;
@@ -479,8 +486,22 @@ void LitColumnsApp::BuildShadersAndInputLayout()
 		NULL, NULL
 	};
 
-	mShaders["standardVS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "VS", "vs_5_1");
-	mShaders["opaquePS"] = d3dUtil::CompileShader(L"Shaders\\Default.hlsl", nullptr, "PS", "ps_5_1");
+	std::filesystem::path fpath = std::wstring(PROJECT_DIR_PATH) + L"Shaders/Default.hlsl";
+    fpath = fpath.make_preferred();
+    std::wstring shader_path = fpath.wstring();
+
+#if defined(DEBUG) | defined(_DEBUG)
+	std::filesystem::path sP = shader_path;
+    auto bpath = std::filesystem::relative(sP);
+    if (!std::filesystem::exists(sP)){
+        std::cerr << "Shader path does not exist [" << sP.u8string() << "]." << std::endl;
+        std::cerr << "CWD: " << std::filesystem::current_path() << std::endl;
+        std::cerr << "bpath: " << bpath << " | " << (std::filesystem::exists(bpath) ? "active" : "inactive") << std::endl;
+    }
+#endif
+
+	mShaders["standardVS"] = d3dUtil::CompileShader(shader_path, nullptr, "VS", "vs_5_1");
+	mShaders["opaquePS"] = d3dUtil::CompileShader(shader_path, nullptr, "PS", "ps_5_1");
 	
     mInputLayout =
     {
@@ -612,11 +633,25 @@ void LitColumnsApp::BuildShapeGeometry()
 
 void LitColumnsApp::BuildSkullGeometry()
 {
-	std::ifstream fin("Models/skull.txt");
+	std::filesystem::path fpath = std::wstring(PROJECT_DIR_PATH) + L"Models/skull.txt";
+    fpath = fpath.make_preferred();
+    std::wstring skull_path = fpath.wstring();
+
+#if defined(DEBUG) | defined(_DEBUG)
+	std::filesystem::path sP = skull_path;
+    auto bpath = std::filesystem::relative(sP);
+    if (!std::filesystem::exists(sP)){
+        std::cerr << "Shader path does not exist [" << sP.u8string() << "]." << std::endl;
+        std::cerr << "CWD: " << std::filesystem::current_path() << std::endl;
+        std::cerr << "bpath: " << bpath << " | " << (std::filesystem::exists(bpath) ? "active" : "inactive") << std::endl;
+    }
+#endif
+
+	std::ifstream fin(fpath.string());
 
 	if(!fin)
 	{
-		MessageBox(0, L"Models/skull.txt not found.", 0, 0);
+		MessageBox(0, skull_path.c_str(), 0, 0);
 		return;
 	}
 
@@ -758,7 +793,7 @@ void LitColumnsApp::BuildMaterials()
 	skullMat->MatCBIndex = 3;
 	skullMat->DiffuseSrvHeapIndex = 3;
 	skullMat->DiffuseAlbedo = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
-	skullMat->FresnelR0 = XMFLOAT3(0.05f, 0.05f, 0.05);
+	skullMat->FresnelR0 = XMFLOAT3(0.05f, 0.05f, 0.05f);
 	skullMat->Roughness = 0.3f;
 	
 	mMaterials["bricks0"] = std::move(bricks0);

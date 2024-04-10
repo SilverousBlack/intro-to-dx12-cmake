@@ -72,6 +72,7 @@ set(
     "ch7.drawing_in_d3d_2.shapes"
     "ch7.drawing_in_d3d_2.land_and_waves"
     "ch8.lighting.lit_waves"
+    "ch8.lighting.lit_columns"
 )
 
 set(
