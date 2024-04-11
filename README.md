@@ -6,11 +6,44 @@ This is an unofficial fork of the [sample code repo]((https://github.com/d3dcode
 
 ## Building
 
-You'll need Visual Studio 2022 with the _Desktop development with C++_ and _Game development with C++_ Visual Studio workloads. Once you've satisfied these requirements, you should be able to open any of the included SLN files, build, and run the sample apps. Obviously, you also need to have a GPU that supports DirectX 12 for the samples to work correctly.
+### Prerequisites
+- [x] Working [CMake](CMake.org) installation
+- [x] Windows SDK (*preferably the latest* or `v10+`)[^1]
+- [x] Working `Win32API`-compatible compiler (`MinGW`, `MSVC`, `Clang`) installation
+- [x] GPU with DirectX 12 support (see your `dxdiag` for more details)
+
+### Setup
+
+1. Make a build directory
+```cmd
+$(REPOSITORY_DIRECTORY)> mkdir build
+$(REPOSITORY_DIRECTORY)> cd build
+```
+
+2. Configure CMake project
+```cmd
+$(REPOSITORY_DIRECTORY)/build> cmake ../.
+```
+
+### Building and Targets
+
+```cmd
+$(REPOSITORY_DIRECTORY)/build> cmake --build . 
+```
+- Generic build-all command `ALL_BUILD` - bulk builds everything in the ***CURRENT*** target configuration (default: `Debug`).
+  - Specify target with `--target [TARGET]` (e.g. `cmake --build . --target ch1.vector_algebra.playground`). 
+  - Specify configuration with `--config [CONFIG]` (`Debug` | `Release` | `MinSizeRel` | `RelWithDebInfo`)
+
+```cmd
+$(REPOSITORY_DIRECTORY)/build> cmake --build . --target build-all
+```
+- Full Build-All Command `build-all` - bulk builds everything in ***ALL*** the target configurations.
+
+[^1]: Sample applications shown here rely heavily on the `Win32API` (`windows.h`) and are designed to be run on a Windows machine as `DirectX` is owned by Microsoft. 
 
 ## Changes
 
-All projects have been updated to use Visual Studio 2022 and retargeted to the latest Windows SDK.
+Migrated to CMake.
 
 ## Considerations
 
