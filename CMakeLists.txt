@@ -66,6 +66,7 @@ set(
     "ch1.vector_algebra.tol"
     "ch1.vector_algebra.vector_ops"
     "ch1.vector_algebra.xmvec3"
+    "ch1.vector_algebra.playground"
     "ch2.matrix_algebra.xmmatrix"
     "ch4.direct3d_init.init"
     "ch6.drawing_in_d3d.box"

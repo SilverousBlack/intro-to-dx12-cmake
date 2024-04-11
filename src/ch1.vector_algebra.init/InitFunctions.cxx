@@ -18,7 +18,6 @@ std::ostream& XM_CALLCONV operator<<(std::ostream& os, DirectX::FXMVECTOR v)
 
 int main(){
     std::cout.setf(std::ios_base::boolalpha);
-    float stuff = 0.0f;
 
     // Check support for SSE2 (Pentium4, AMD K8, and above).
     if (!DirectX::XMVerifyCPUSupport()){
