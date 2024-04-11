@@ -1,3 +1,7 @@
+# Information Library (Auto-generated)
+info.hxx
+info.hxx.in
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -30,6 +34,10 @@ $RECYCLE.BIN/
 
 # Thumbnails
 ._*
+
+# Archives
+*.zip
+*.rar
 
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
