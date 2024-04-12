@@ -23,7 +23,7 @@ std::ostream &XM_CALLCONV operator<<(std::ostream &os, DirectX::FXMVECTOR v)
 
 int main(int argc, char *argv[])
 {
-    // formalize arguments
+    // formalize arguments | argument parsing
 #if defined(DEBUG) | defined(_DEBUG)
     std::cout << "Formalizing command args." << std::endl << "Argument count: " << argc - 1 << std::endl;
 #endif
@@ -71,9 +71,10 @@ int main(int argc, char *argv[])
     for (auto &arg : args)
         std::cout << arg;
     std::cout << std::endl;
-#endif
 
+    // for debugging purposes
     args.insert("all");
+#endif
 
     if (args.size() == 0){
 #if defined(DEBUG) | defined(_DEBUG)
@@ -113,7 +114,11 @@ int main(int argc, char *argv[])
         std::cout << "\tc.) 3u + 2v = " << DirectX::operator+(DirectX::operator*(3, u), DirectX::operator*(2, v)) << std::endl;
         std::cout << "\td.) -2u + v = " << DirectX::operator+(DirectX::operator*(-2, u), v) << std::endl;
     }
-    // TODO: ex3
+    
+    if (args.find("all") != args.end() || args.find("ex3") != args.end()){
+        // TODO: ex3
+        std::cout << "Exercise #3 still not implemented" << std::endl;
+    }
     if (args.find("all") != args.end() || args.find("ex4") != args.end()){
         DirectX::XMVECTOR a = DirectX::XMVectorSet(1.0f, 2.0f, 3.0f, 0.0f);
         DirectX::XMVECTOR b = DirectX::XMVectorSet(-2.0f, 0.0f, 4.0f, 0.0f);
@@ -175,5 +180,21 @@ int main(int argc, char *argv[])
 
                 HENCE PROVED ||ku|| == |k| * ||u||
         */
+    }
+    if (args.find("all") != args.end() || args.find("ex7") != args.end()){
+        std::cout << "Is the angle between u and v orthogonal, acute, or obtuse?" << std::endl;
+        DirectX::XMVECTOR u = DirectX::XMVectorSet(1.0f, 1.0f, 1.0f, 0.0f);
+        DirectX::XMVECTOR v = DirectX::XMVectorSet(2.0f, 3.0f, 4.0f, 0.0f);
+        float a = DirectX::XMConvertToDegrees(DirectX::XMVectorGetX(DirectX::XMVector3AngleBetweenVectors(u, v)));
+        auto f = [](float val){
+            if (val < 90) return std::string("acute");
+            else if (val > 90) return std::string("obtuse");
+            else return std::string("orthogonal");
+        };
+        std::cout << "\tu = " << u << ", v = " << v << "; angle = " << a << "\xf8 (" << f(a) << ")" << std::endl;
+        u = DirectX::XMVectorSet(1.0f, 1.0f, 0.0f, 0.0f);
+        v = DirectX::XMVectorSet(-2.0f, 2.0f, 0.0f, 0.0f);
+        a = DirectX::XMConvertToDegrees(DirectX::XMVectorGetX(DirectX::XMVector3AngleBetweenVectors(u, v)));
+        std::cout << "\tu = " << u << ", v = " << v << "; angle = " << a << "\xf8 (" << f(a) << ")" << std::endl;
     }
 }
