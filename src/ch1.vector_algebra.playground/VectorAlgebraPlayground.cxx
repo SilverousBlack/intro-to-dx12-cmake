@@ -58,6 +58,8 @@ int main(int argc, char *argv[])
         else if (buf == "-4" | buf == "--ex4") symbol = "ex4";
         else if (buf == "-5" | buf == "--ex5") symbol = "ex5";
         else if (buf == "-6" | buf == "--ex6") symbol = "ex6";
+        else if (buf == "-7" | buf == "--ex7") symbol = "ex7";
+        else if (buf == "-8" | buf == "--ex8") symbol = "ex8";
         else {
             std::cout << "bad argument detected!" << std::endl;
             std::cout << argv[0] << " [FLAGS]" << std::endl;
@@ -196,5 +198,35 @@ int main(int argc, char *argv[])
         v = DirectX::XMVectorSet(-2.0f, 2.0f, 0.0f, 0.0f);
         a = DirectX::XMConvertToDegrees(DirectX::XMVectorGetX(DirectX::XMVector3AngleBetweenVectors(u, v)));
         std::cout << "\tu = " << u << ", v = " << v << "; angle = " << a << "\xf8 (" << f(a) << ")" << std::endl;
+    }
+    if (args.find("all") != args.end() || args.find("ex8") != args.end()){
+        DirectX::XMVECTOR u = DirectX::XMVectorSet(-1.0f, 3.0f, 2.0f, 0.0f);
+        DirectX::XMVECTOR v = DirectX::XMVectorSet(3.0f, -4.0f, 1.0f, 0.0f);
+        float a = DirectX::XMConvertToDegrees(DirectX::XMVectorGetX(DirectX::XMVector3AngleBetweenVectors(u, v)));
+        std::cout << "Let u = " << u << " and v = " << v << "; angle =  " << a << "\xf8" << std::endl;
+    }
+    if (args.find("all") != args.end() || args.find("ex9") != args.end()){
+        // TODO: ex9
+        std::cout << "Exercise #9 still not implemented" << std::endl;
+    }
+    if (args.find("all") != args.end() || args.find("ex10") != args.end()){
+        // TODO: ex10
+        std::cout << "Exercise #10 still not implemented" << std::endl;
+    }
+    if (args.find("all") != args.end() || args.find("ex11") != args.end()){
+        DirectX::XMVECTOR n = DirectX::XMVectorSet(-2.0f, 1.0f, 0.0f, 0.0f);
+        DirectX::XMVECTOR g = DirectX::XMVectorSet(0.0f, -9.8f, 0.0f, 0.0f);
+        DirectX::XMVECTOR a, b, c;
+        DirectX::XMVector3ComponentsFromNormal(&a, &b, g, n);
+        c = DirectX::operator+(a, b);
+        bool equality = DirectX::XMVector2Equal(g, c);
+        std::cout << "Let n = " << n << ". Decompose the vector g = " << g << " into the sum of two orthogonal vectors, one parallel to n and the other orthogonal to n." << std::endl
+            << "\ta = " << a << std::endl
+            << "\tb = " << b << std::endl
+            << "\tc = " << c << std::endl
+            << "\tg == c: " << equality << std::endl;
+    }
+    if (args.find("all") != args.end() || args.find("ex12") != args.end()){
+        
     }
 }
