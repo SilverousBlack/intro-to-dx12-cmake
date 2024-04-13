@@ -60,6 +60,14 @@ set(D3D12SDK_LIBRARY "${PROJECT_SOURCE_DIR}/ext/d3d/build/native/bin/${CMAKE_SYS
 include_directories(src)
 include_directories(src/info)
 
+include(FetchContent)
+include(ExternalProject)
+FetchContent_Declare(
+    argparse
+    GIT_REPOSITORY https://github.com/p-ranav/argparse.git
+)
+FetchContent_MakeAvailable(argparse)
+
 set(
     EXECUTABLES
     "ch1.vector_algebra.init"
@@ -68,6 +76,7 @@ set(
     "ch1.vector_algebra.xmvec3"
     "ch1.vector_algebra.playground"
     "ch2.matrix_algebra.xmmatrix"
+    "ch2.matrix_algebra.playground"
     "ch4.direct3d_init.init"
     "ch6.drawing_in_d3d.box"
     "ch7.drawing_in_d3d_2.shapes"
@@ -113,5 +122,12 @@ set(
     CMAKE_CXX_FLAGS 
     "${CMAKE_CXX_FLAGS} -msse -msse2 -msse3"
 )
+
+FetchContent_GetProperties(argparse)
+if(NOT argparse_POPULATED)
+  FetchContent_Populate(argparse)
+  #create gt build directory in binary tree
+  add_subdirectory(${argparse_SOURCE_DIR} gt)
+endif()
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
