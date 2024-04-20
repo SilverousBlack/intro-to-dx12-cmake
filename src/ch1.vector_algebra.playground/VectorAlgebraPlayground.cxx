@@ -224,9 +224,11 @@ int main(int argc, char *argv[])
             << "\ta = " << a << std::endl
             << "\tb = " << b << std::endl
             << "\tc = " << c << std::endl
-            << "\tg == c: " << equality << std::endl;
+            << "\tg == c: " << equality << std::endl
+            << "\ta / n = " << DirectX::operator/(a, n) << std::endl
+            << "\tb dot g = " << DirectX::XMVector2Dot(b, g) << std::endl;  
     }
     if (args.find("all") != args.end() || args.find("ex12") != args.end()){
-        
+
     }
 }
